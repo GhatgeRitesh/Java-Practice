@@ -183,7 +183,8 @@ public class Impl_LinkedList {
     {
         // methods name in the program is
         /*
-        *   1.InsertFirst  2.
+        *   1.insertAtStart()    2.insertAtEnd()   3.deleteEnd()  4.deleteStart()  5.updateNode()  6.getSize()
+        *   7.updateWithIndex()  8.display()
         *
         * */
 
