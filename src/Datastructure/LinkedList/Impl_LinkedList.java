@@ -5,7 +5,7 @@ public class Impl_LinkedList {
 
 //-------------------------------------------declaring class variables--------------------------------------------------
 
-    private int size;
+    private static int size;
 
     //constructor
     Impl_LinkedList()
@@ -15,10 +15,10 @@ public class Impl_LinkedList {
 
 //-------------------------------------------declaring Node Structure---------------------------------------------------
     //declaring the Head For the Node
-    Node head;
+   static Node head;
 
     //creating the class for Node
-    public class Node
+    public static class Node
     {
         //declaring the type of data is stored into the linked List
         String data;
@@ -37,14 +37,14 @@ public class Impl_LinkedList {
 
  //--------------------------------------method to calculate the size of Linked List------------------------------------
 
- public void getSize()
+ public static void getSize()
  {
      System.out.println("Current Size of the Linked List is --> "+size);
  }
 
  //-----------------------------adding method to insert the data into list to the first place---------------------------
 
-    public void insertAtStart(String data)
+    public static void insertAtStart(String data)
     {
         Node newnode=new Node(data); //creating the object for the newNode
 
@@ -72,7 +72,7 @@ public class Impl_LinkedList {
  //--------------------------------------------------end of insert------------------------------------------------------
  //-------------------------------------method to insert the node at end of the list------------------------------------
 
-    public void insertAtEnd(String data)
+    public static void insert(String data)
     {
         Node newNode=new Node(data);
         size++;
@@ -81,6 +81,8 @@ public class Impl_LinkedList {
             head=newNode;
 
             System.out.println("Node Added Successfully");
+
+            return;
         }
 
         // for travesing into list always create new object/Node
@@ -97,28 +99,30 @@ public class Impl_LinkedList {
  //-------------------------------------------------end of end insert---------------------------------------------------
  //---------------------------------------method for displaying list elements-------------------------------------------
 
-    public void display()
+    public static void display()
     {
-        Node currNode=head;
 
         if(head==null)
         {
             System.out.println("List is Empty");
+            return;
         }
 
         System.out.println("The Eelements of the LinkedList are :");
-
-        while(currNode.next.next!=null)
+        Node currNode=head;
+        while(currNode!=null)
         {
             System.out.print("  "+currNode.data);
+            currNode=currNode.next;
         }
+        System.out.println("");
     }
 
  //------------------------------------------------end of display ------------------------------------------------------
 
 //------------------------------------------method for deleting the first node------------------------------------------
 
-    public void deleteFirst()
+    public static void deleteFirst()
     {
        //check if list is Empty or Not
        if(head==null)
@@ -134,7 +138,7 @@ public class Impl_LinkedList {
 
 //------------------------------------------------end of delete first---------------------------------------------------
 //-------------------------------------------method for delete last Node -----------------------------------------------
-    public void deleteEnd()
+    public static void deleteEnd()
     {
         if(head==null)
         {
@@ -152,7 +156,7 @@ public class Impl_LinkedList {
 //------------------------------------------------end of delete last ---------------------------------------------------
 //----------------------------------------update the List with the target Node -----------------------------------------
 
-    public void updateNode(String newdata,String currdata)
+    public static void updateNode(String newdata,String currdata)
     {
         if(head==null)
         {
@@ -171,7 +175,7 @@ public class Impl_LinkedList {
 //----------------------------------------------end of update target Node-----------------------------------------------
 //----------------------------------------------updating node with index------------------------------------------------
 
-   public void updateWithIndex(String data,int index)
+   public static void updateWithIndex(String data,int index)
    {
 
    }
@@ -183,10 +187,84 @@ public class Impl_LinkedList {
     {
         // methods name in the program is
         /*
-        *   1.insertAtStart()    2.insertAtEnd()   3.deleteEnd()  4.deleteStart()  5.updateNode()  6.getSize()
-        *   7.updateWithIndex()  8.display()
+        *   1.insertAtStart()    2.insert()[adding at last]   3.deleteEnd()  4.deleteStart()  5.updateNode()  6.getSize()
+        *   7.updateWithIndex()  8.display() 9.displayhead() 10.reverse()   11.detectLoop()
         *
         * */
 
+        // test1
+        System.out.println("adding elements into list");
+        display();
+        insert("a");
+        insert("b");
+        insert("c");
+        insert("e");
+        display();
+        getSize();
+        reverse();
+        display();
+        detectLoop();
     }
+    public static void displayhead(){
+        System.out.println(head.data);
+    }
+
+    //---------------------------------------------practice Problems----------------------------------------------------
+
+//------------------------------------------------reversing the list----------------------------------------------------
+
+    public static void reverse()
+    {
+        if(head==null)
+        {
+            System.out.println("List is Empty");
+            return;
+        }
+        Node prev=null;
+        Node curr=head;
+        Node nextNode=null;
+
+        while(curr!=null) //traversing to the last Node in single run
+        {
+
+            nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+            try{
+                System.out.println("currNode-->"+curr.data+" head-->"+nextNode.data+" prev-->"+prev.data);
+            }catch(NullPointerException e)
+            {
+                System.out.println("curr and nextNode are at last Node ");
+            }
+        }
+        System.out.println("head->"+head.data+" prev->"+prev.data);
+        head=prev;
+    }
+
+//-------------------------------------------------end of reverse-------------------------------------------------------
+ //-------------------------------------- code to detect the loop in list-----------------------------------------------
+    public static void detectLoop()
+    {
+        if(head==null)
+        {
+            System.out.println("Empty List");
+            return;
+        }
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next!=null)
+        {
+            fast=fast.next.next;
+            slow=slow.next;
+            if(fast==slow)
+            {
+                System.out.println("Loop detected");
+                return;
+            }
+        }
+        System.out.println("NO Loop Detected");
+    }
+ //---------------------------------------------end of loop detection---------------------------------------------------
+
 }
