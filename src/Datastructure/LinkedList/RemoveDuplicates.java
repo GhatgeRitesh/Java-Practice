@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class RemoveDuplicates {
 
-    //code to remove the duplicates from the linked 
-    //assuming there is sorted Linked  present
+    //code to remove the duplicates from the linked list
+    //assuming there is sorted Linked list  present
 
    static Node head;
     
