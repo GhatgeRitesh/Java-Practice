@@ -2,7 +2,7 @@ package Datastructure.Stack.Problems;
 
 import java.util.Stack;
 
-public class p2 {
+public class reverseStack {
     // code to reverse the stack
 
     static void reverseStack(Stack<Integer> s)

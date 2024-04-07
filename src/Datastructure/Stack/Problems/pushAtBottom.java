@@ -2,7 +2,7 @@ package Datastructure.Stack.Problems;
 
 import java.util.Stack;
 
-public class p1 {
+public class pushAtBottom {
     // code to push to the bottom of stack
 
     //using the implicit recursion

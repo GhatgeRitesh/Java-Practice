@@ -16,21 +16,55 @@ public class PalindromeLinkedList {
     }
     //------------------------------------------------------------------
 
-    public static boolean isPalindrome(ListNode list)
+    public static boolean isPalindrome(ListNode head)
     {
-        if(list == null )
+        if(head == null ||head.next== null)
         {
             System.out.println("list is empty");
             return false;
         }
-        // creating the pointers to start and end nodes
-        ListNode start=head;
-        ListNode end=head;
+       // spliting list into two havles
+        ListNode slow=head;
+        ListNode fast=head;
 
-        // traversing the end node to the
+        while(fast.next!=null && fast.next.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
 
+        // reverse the second half of the list
+        ListNode second=reverse(slow.next);
+        ListNode first=head;
+
+        //traversing and checking the each Nodes
+        while(second!=null)
+        {
+            if(second.val!=first.val)
+            {
+                return false;
+            }
+            first=first.next;
+            second=second.next;
+        }
 
         return true;
+    }
+
+    static ListNode reverse(ListNode second)
+    {
+        ListNode prev=null ;
+        ListNode curr=second;
+
+        while(curr!=null)
+        {
+            ListNode nextNode=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=nextNode;
+        }
+        return prev;
+
     }
 
     //------------------------------------------------------------------
@@ -39,9 +73,15 @@ public class PalindromeLinkedList {
         list.next=new ListNode(2);
         list.next.next=new ListNode(3);
         list.next.next.next=new ListNode(2);
-        list.next.next.next.next=new ListNode(1);
+        list.next.next.next.next=new ListNode(2);
 
         boolean result=isPalindrome(list);
         System.out.println(result);
     }
 }
+/*
+1. traverse the linked list and divide it into two halves
+2. reverse the second half and again traverse lists while checking thier data
+3. if reached end return true else false
+
+ */
