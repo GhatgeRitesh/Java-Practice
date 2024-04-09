@@ -40,7 +40,26 @@ public class FIndKthNodeFromEnd {
          return curr;
        }
        // another way to solve this quetion is by two pointers
-       
+       static ListNode twopointer(ListNode list,int k)
+       {
+           ListNode slow=list;
+           ListNode fast=list;
+           while(k-->0)
+           {
+               fast=fast.next;
+           }
+           while(fast!=null && fast.next!=null)
+           {
+               slow=slow.next;
+               fast=fast.next;
+           }
+           if(slow==null)
+           {
+               System.out.println("Node not found");
+               return null;
+           }
+           return slow;
+       }
 
        public static void main(String[] args) {
            // creating the
@@ -51,6 +70,8 @@ public class FIndKthNodeFromEnd {
            head=list;
            ListNode node=getKthNode(2,list);
            System.out.println("result--> "+node.val);
+           ListNode node2=twopointer(list,3);
+           System.out.println("result1 --> "+node2.val);
        }
    }
 }
