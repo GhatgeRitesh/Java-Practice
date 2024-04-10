@@ -11,16 +11,21 @@ public class hashNumber {
         String Name=sc.nextLine();
         System.out.println("Enter Email");
         String Email=sc.nextLine();
-        int id=0;
-        for(int i=0;i<Name.length() && i<Email.length();i++)
-        {
-            id=17*id+Name.charAt(i);
-        }
-        System.out.println(id+" this is id");
-        //1517398682 125799135
-        //1517398682
-        //6032276
+        generateUniqueKey(Name,Email);
 
     }
+    public static void generateUniqueKey(String name, String email) {
+        // Concatenate name and email
+        String combinedData = name + email;
 
+        // Calculate hash code
+        int hashCode = Objects.hash(combinedData);
+
+        // Convert hash code to 6-digit key
+        String key = String.format("%06d", Math.abs(hashCode) % 1000000);
+
+        System.out.println(key);
+    }
+    //357127
+    //733032
 }

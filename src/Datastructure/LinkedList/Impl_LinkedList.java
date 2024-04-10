@@ -184,7 +184,7 @@ public class Impl_LinkedList {
 
 //-----------------------------------------------------main method------------------------------------------------------
    public static void main(String[] args)
-    {
+     {
         // methods name in the program is
         /*
         *   1.insertAtStart()    2.insert()[adding at last]   3.deleteEnd()  4.deleteStart()  5.updateNode()  6.getSize()
