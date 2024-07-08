@@ -37,7 +37,7 @@ public class bubleSort{
                     arr[j-1]=temp;
                     flag=true;
                     count++;
-                    // System.out.println(Arrays.toString(arr) +" "+count); 
+                    // System.out.println(Strivers_455.Step3_1.Arrays.toString(arr) +" "+count);
                 }
             }
             // if for the perticular value of i the j is not swapped then array is sorted and you should stop the execution

@@ -78,7 +78,7 @@ public class MergeSort{
 //    // code to learn the implementation of merge sort using recursion
 //    public static void main(String[] args) {
 //        int[] arr={1,7,3,6,89,2,66,78};
-//       System.out.println(Arrays.toString(divide(arr)) +" <--- array");
+//       System.out.println(Strivers_455.Step3_1.Arrays.toString(divide(arr)) +" <--- array");
 //    }
 //    // method to divide the array into small subproblems
 //    public static int[] divide(int[] arr)
@@ -88,8 +88,8 @@ public class MergeSort{
 //          return arr ;
 //      }
 //      int mid=arr.length/2;
-//      int[] left=divide(Arrays.copyOfRange(arr,0,mid));
-//      int[] right=divide(Arrays.copyOfRange(arr,mid,arr.length));
+//      int[] left=divide(Strivers_455.Step3_1.Arrays.copyOfRange(arr,0,mid));
+//      int[] right=divide(Strivers_455.Step3_1.Arrays.copyOfRange(arr,mid,arr.length));
 //
 //      return combine(left,right);
 //

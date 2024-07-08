@@ -95,7 +95,7 @@ public class sortedMatrixSearch {
 //               {4, 5, 6},
 //               {7, 8, 9}
 //       };
-//       System.out.println(Arrays.toString(search(arr, 3)));
+//       System.out.println(Strivers_455.Step3_1.Arrays.toString(search(arr, 3)));
 //   }
 
 //   // search in the row provided between the cols provided

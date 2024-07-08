@@ -189,5 +189,35 @@ public class Patterns{
              }
              System.out.println(" ");
          }
+
+         System.out.println("Pattern 15:");
+         int ba=5;
+         char chh=65;
+         for(int i=ba;i>=0;i--)
+         {
+             for(int j=0;j<i;j++){
+                 System.out.print(Character.toString(chh+j)+" ");
+             }
+             System.out.println(" ");
+         }
+
+         System.out.println("Pattern 16:");
+         int bb=5;
+         char chhh=65;
+         for(int i=0;i<bb;i++){
+             for(int j=0;j<=i;j++){
+                 System.out.print(chhh);
+             }
+             System.out.println(" ");
+             chhh+=1;
+         }
+
+         int number=6;
+         int co=2*number+1;
+         for(int i=0;i<=number;i++)
+         {
+                 System.out.print(co+":"+co/2+" ");
+                 co-=2;
+         }
   }
 }
