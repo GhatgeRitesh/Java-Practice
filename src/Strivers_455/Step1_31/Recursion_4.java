@@ -1,4 +1,4 @@
-package Strivers_455;
+package Strivers_455.Step1_31;
 
 public class Recursion_4 {
     // print n to 1

@@ -1,4 +1,4 @@
-/*selection sort is used to as the swapping sort 
+package Sorting;/*selection sort is used to as the swapping sort
   using the selection sort the last index gets sort the firstly as the buble sort 
    
   in this algorithm we select first element that is the largest into the array
@@ -12,7 +12,7 @@
   time complexity for the algorithm is O(n^2) in both worst and best Case.
   it is not stable algorithm 
   it only works well with the small lists.
-   space complexity is same as it is on array conversion.
+   space complexity is same as it is on array conversion. / inplace
 */
 import java.util.*;
 

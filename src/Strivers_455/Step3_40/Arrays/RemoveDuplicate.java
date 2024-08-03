@@ -1,4 +1,4 @@
-package Strivers_455.Step3_1.Arrays;
+package Strivers_455.Step3_40.Arrays;
 
 import java.util.Arrays;
 import java.util.HashSet;

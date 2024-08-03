@@ -11,7 +11,7 @@ public class Fabonacci_Numbers {
         System.out.println(getfibo(6));
 
         //print fibonacci series for n numbers
-        int n=getseries(6);
+        int n=getseries(3);
         System.out.println("\n"+n);
     }
 
