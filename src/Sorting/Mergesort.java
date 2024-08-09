@@ -42,7 +42,7 @@ public class Mergesort {
         // merge(arr,s,mid);
         // merge(arr,mid+1,e);
         // combine(arr,s,mid,e);
-        if (s < e) {
+        if (s <=  e) {
             int mid = s + (e - s) / 2;
             merge(arr, s, mid);
             merge(arr, mid + 1, e);
@@ -53,7 +53,7 @@ public class Mergesort {
    public static void main(String[] args) {
      // program for the merge sort
      Scanner sc=new Scanner(System.in);
-     System.out.println("enter the array element");
+     System.out.println("enter the array size");
      int n=sc.nextInt();
      int[] arr=new int[n];
      System.out.println("enter the elements");
