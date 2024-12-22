@@ -1,5 +1,4 @@
 package InformationSecurityPracticals;
-
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
@@ -12,21 +11,21 @@ public class ServerRSA {
     private PrivateKey privateKey;
     private PublicKey publicKey;
 
-    // Generate RSA Key Pair
+    // Method to generate the RSA Key Pair (Public and Private)
     public void generateKeyPair() throws Exception {
-        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
-        generator.initialize(2048);  // Key size
-        KeyPair pair = generator.generateKeyPair();
+        KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance("RSA");
+        keyPairGen.initialize(2048); // Key size of 2048 bits
+        KeyPair pair = keyPairGen.generateKeyPair();
         this.privateKey = pair.getPrivate();
         this.publicKey = pair.getPublic();
     }
 
-    // Getter for Public Key (for sharing with the client)
+    // Get Public Key to share with the client
     public PublicKey getPublicKey() {
         return this.publicKey;
     }
 
-    // Decrypt using Private Key
+    // Method to decrypt the received encrypted message using the private key
     public String decrypt(byte[] encryptedMessage) throws Exception {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
@@ -35,20 +34,19 @@ public class ServerRSA {
     }
 
     public static void main(String[] args) throws Exception {
-        // Initialize server and generate keys
+        // Server generates the RSA key pair
         ServerRSA server = new ServerRSA();
         server.generateKeyPair();
 
-        // Print Public Key (to be shared with client)
-        System.out.println("Public Key (Base64): " + Base64.getEncoder().encodeToString(server.getPublicKey().getEncoded()));
+        System.out.println("Server's Public Key (Base64): " + Base64.getEncoder().encodeToString(server.getPublicKey().getEncoded()));
 
-        // Assume this encrypted message is received from the client
-        String encryptedMessage = "<received encrypted message in Base64>"; // replace with actual encrypted message
-        byte[] encryptedBytes = Base64.getDecoder().decode(encryptedMessage);
+
+        // Assume the server receives the encrypted message from the client (Base64 encoded)
+        String encryptedMessageBase64 = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsHmoO8EX6kciZ3Z0SmQc7yxEGrNLfXQ4cKQG209lgK84U1mqIElxGPymYgqHxMsMauxlr7ChhXH4QCCVYMoRoYZgGfkY57gkKJqbwFkyH+Im9boSz/XzxqE84Tgo0tIoS2+B7c4FZD1HdcIst0inCvOJxeUkETtN/WSCkcpEdfG91AKOPrTl8T15aV3TEu58LO...\n";  // replace with actual encrypted message
+        byte[] encryptedMessage = Base64.getDecoder().decode(encryptedMessageBase64);
 
         // Decrypt the message
-        String decryptedMessage = server.decrypt(encryptedBytes);
-        System.out.println("Decrypted Message: " + decryptedMessage);
+        String decryptedMessage = server.decrypt(encryptedMessage);
+        System.out.println("Decrypted Message from Client: " + decryptedMessage);
     }
 }
-

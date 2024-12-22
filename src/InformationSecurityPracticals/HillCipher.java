@@ -2,7 +2,7 @@ package InformationSecurityPracticals;
 
 import java.util.Scanner;
 
-public class HillCipher {
+public class    HillCipher {
     public static int[] encrypt(int[][] keyMatrix, int[] plaintextVector) {
         int[] result = new int[plaintextVector.length];
 

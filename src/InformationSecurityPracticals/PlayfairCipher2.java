@@ -116,7 +116,7 @@ public class PlayfairCipher2 {
 
     public static void main(String[] args) {
         PlayfairCipher2 cipher = new PlayfairCipher2("monarchy");
-        String encrypted = cipher.encrypt("This is the message decrypted from above encrypted message");
+        String encrypted = cipher.encrypt("This is the input message Before and After Encryption");
         System.out.println("Encrypted: " + encrypted);
         String decrypted = cipher.decrypt(encrypted);
         System.out.println("Decrypted: " + decrypted);
