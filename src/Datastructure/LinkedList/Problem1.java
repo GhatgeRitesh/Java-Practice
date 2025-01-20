@@ -1,4 +1,5 @@
-import java.util.Collections;
+package Datastructure.LinkedList;
+
 import java.util.LinkedList;
 public class Problem1 {
     // program to insert the Node IN First Place Of the List

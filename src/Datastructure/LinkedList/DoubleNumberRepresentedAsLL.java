@@ -1,4 +1,4 @@
-package Datastructure;
+package Datastructure.LinkedList;
 
 public class DoubleNumberRepresentedAsLL {
     // problem no 2816 leetcode
